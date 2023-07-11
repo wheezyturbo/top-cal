@@ -21,7 +21,7 @@ const numbuttons = document.querySelectorAll('.numbers');
 numbuttons.forEach((button)=>{
     button.addEventListener('click',()=>{
         document.getElementById('input').value+=button.textContent;
-        console.log(button.textContent)
+        handleNumClick(button.textContent)
 
     })
 })
