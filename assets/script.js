@@ -25,3 +25,9 @@ numbuttons.forEach((button)=>{
 
     })
 })
+
+
+let updateInput = ()=>{
+    document.getElementById('input').value = a+c+b;
+}
+
