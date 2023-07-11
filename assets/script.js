@@ -38,3 +38,9 @@ document.querySelector('.ac').addEventListener('click',()=>{
     updateInput();
 })
 
+
+function handleNumClick(value){
+    if(c === '')a+=value
+    else b+=value
+    updateInput();
+}
