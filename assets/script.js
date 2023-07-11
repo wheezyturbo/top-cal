@@ -31,3 +31,10 @@ let updateInput = ()=>{
     document.getElementById('input').value = a+c+b;
 }
 
+document.querySelector('.ac').addEventListener('click',()=>{
+    a = ''
+    b = ''
+    c = ''
+    updateInput();
+})
+
