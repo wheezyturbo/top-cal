@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="/assets/style.css">
 </head>
+
 <body>
-    <script src="/assets/script.js"></script>
+    <div class="container">
+        <div class="calc-frame">
+            <div class="display">
+                <input type="text" name="number" id="input" value="1+2">
+            </div>
+            <div class="buttons">
+                <div class="row">
+                    <button style="color:brown" class="ac">AC</button>
+                    <button style="color:brown;" class="clear">C</button>
+                    <button class="numbers">0</button>
+                    <button class="numbers" style="color:coral">+</button>
+                </div>
+                <div class="row">
+                    <button class="numbers">1</button>
+                    <button class="numbers">2</button>
+                    <button class="numbers">3</button>
+                    <button class="numbers" style="color:coral">-</button>
+                </div>
+                <div class="row">
+                    <button class="numbers">4</button>
+                    <button class="numbers">5</button>
+                    <button class="numbers">6</button>
+                    <button class="numbers" style="color:coral">*</button>
+                </div>
+                <div class="row">
+                    <button class="numbers">7</button>
+                    <button class="numbers">8</button>
+                    <button class="numbers">9</button>
+                    <button class="numbers" style="color:coral">/</button>
+                </div>
+                <div class="row">
+                    <button></button>
+                    <button></button>
+                    <button>.</button>
+                    <button id="equals">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="/assets/script.js"></script>
 </body>
+
 </html>
