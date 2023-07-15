@@ -32,7 +32,13 @@ numbers.forEach((number)=>{
 const operators = document.querySelectorAll('.operators');
 operators.forEach((operator)=>{
     operator.addEventListener('click',()=>{
-        if(a != '')op = operator.textContent;
+
+        if(op !=''){
+            a = operation(a,op,b);
+            b = '';
+            op = '';
+        };
+        op = operator.textContent;
         updateTextField();
     })
 })
