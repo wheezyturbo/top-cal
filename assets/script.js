@@ -1,46 +1,67 @@
+var a = '',op = '',b = '';
 
-class Calculator{
-    add =(...a) =>a.reduce((b,c)=>b+c)
-    sub = (a,b)=>a-b;
-    mul = (...a)=>a.reduce((b,c)=>b*c);
-    div = (a,b)=>a/b;
+
+function operation(a,op,b){
+    a = Number(a);
+    b = Number(b);
+    switch(op){
+        case '+': return a+b;
+        break;
+        case '-': return a-b;
+        break;
+        case '*':return a*b;
+        break;
+        case '/':return a/b;
+        break;
+        case '':return a;
+        break;
+    }
 }
 
 
-function operate(a,b,c){
-    if(b=='+') return new Calculator().add(a,c);
-    if(b=='-') return new Calculator().sub(a,c);
-    if(b=='*') return new Calculator().mul(a,c);
-    if(b=='/') return new Calculator().div(a,c);
-}
+const numbers = document.querySelectorAll('.numbers');
 
-var a='',b='',c='';
+numbers.forEach((number)=>{
+    number.addEventListener('click',()=>{
+        if(op == '')a += number.textContent;
+        else b += number.textContent;
+        updateTextField();
+    })
+})
 
-
-const numbuttons = document.querySelectorAll('.numbers');
-numbuttons.forEach((button)=>{
-    button.addEventListener('click',()=>{
-        document.getElementById('input').value+=button.textContent;
-        handleNumClick(button.textContent)
-
+const operators = document.querySelectorAll('.operators');
+operators.forEach((operator)=>{
+    operator.addEventListener('click',()=>{
+        op = operator.textContent;
+        updateTextField();
     })
 })
 
 
-let updateInput = ()=>{
-    document.getElementById('input').value = a+c+b;
-}
-
-document.querySelector('.ac').addEventListener('click',()=>{
-    a = ''
+const equalButton = document.getElementById('equals');
+equalButton.addEventListener('click',()=>{
+    const result = operation(a,op,b);
+    a = result;
     b = ''
-    c = ''
-    updateInput();
+    op = ''
+    updateTextField();
+})
+
+const ac = document.querySelector('.ac');
+const input =  document.getElementById('input');
+ac.addEventListener('click',()=>{
+    a = '';b = '';op = '';
+    updateTextField()
+})
+
+const dot = document.querySelector('.dot')
+dot.addEventListener('click',()=>{
+    if(op == '') a+='.';
+    else b+='.';
+    updateTextField();
 })
 
 
-function handleNumClick(value){
-    if(c === '')a+=value
-    else b+=value
-    updateInput();
+function updateTextField(){
+   input.value = a+op+b;
 }
